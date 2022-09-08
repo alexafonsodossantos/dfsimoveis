@@ -1,6 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-.
-. Html contents
-.
+
+<h1>Teste</h1>
+
+{% if casas %}
+    {% for casa in casas %}
+
+    <div class="card">
+        <div class="card-body">
+            
+        <h2 class="card-title">{{casa.nome_exibicao}}</h2>
+        <p class="card-text">R$ {{casa.valor}}</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Área Construída: {{casa.m2_construido}} m²</li>
+            <li class="list-group-item">Área Total: {{casa.m2_total}} m²</li>
+            <li class="list-group-item">Dormitórios: {{casa.dormitorios}}</li>
+            <li class="list-group-item">Suítes: {{casa.suites}}</li>
+            <li class="list-group-item">Garagem: {{casa.vagas}} vagas</li>
+            <li class="list-group-item">Área de serviço: {% if casa.area_servico == True %} Sim {% else %} Não {% endif %}</li>
+            <li class="list-group-item">Churrasqueira: {% if casa.churrasqueira == True %} Sim {% else %} Não {% endif %}</li>
+            <li class="list-group-item">Piscina: {% if casa.piscina == True %} Sim {% else %} Não {% endif %}</li>
+            <li class="list-group-item">Área Gourmet: {% if casa.area_gourmet == True %} Sim {% else %} Não {% endif %}</li>
+        </ul>
+    </div>
+    </div>
+
+
+  
+{% endfor %}
+{% else %}
+<h1>Sem imóveis cadastrados.</h1>
+{% endif %}
 {% endblock %}
