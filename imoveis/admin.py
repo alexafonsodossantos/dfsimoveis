@@ -1,3 +1,4 @@
 from django.contrib import admin
+from imoveis.models import Casa
 
-# Register your models here.
+admin.site.register(Casa)
