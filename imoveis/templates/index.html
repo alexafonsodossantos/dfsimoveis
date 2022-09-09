@@ -6,27 +6,33 @@
 {% if casas %}
     {% for casa in casas %}
 
-<div class="casa-container">
-            <div class="foto-container"><img src="{{casa.foto.url}}" style="border-radius: 22px;"></div>
 
-            <div class="dados-container">
-            <h2>Casa em {{casa.bairro}}, {{casa.cidade}}</h2>
-            
-            <h3>R$ {{casa.valor}}</h3>
-            <h4>Área Construída: {{casa.m2_construido}} m²</h4>
-            <h4>Área Total: {{casa.m2_total}} m²</h4>
-            Dormitórios: {{casa.dormitorios}}
-            Suítes: {{casa.suites}}
-            Garagem: {{casa.vagas}} vagas
-            Área de serviço: {% if casa.area_servico == True %} Sim {% else %} Não {% endif %}
-            Churrasqueira: {% if casa.churrasqueira == True %} Sim {% else %} Não {% endif %}
-            Piscina: {% if casa.piscina == True %} Sim {% else %} Não {% endif %}
-            Área Gourmet: {% if casa.area_gourmet == True %} Sim {% else %} Não {% endif %}
 
+
+    <div id="robson">
+        <div id="capa"> <img src="{{casa.foto.url}}"> </div>
+        <div id="informe">
+            <div id="titulo"> Casa em {{casa.bairro}}, {{casa.cidade}} </div>
+            <div id="valor"> R$ {{casa.valor}} </div>
+                <div id="qlqr">
+                    <div id="dorme"> Dormitórios: {{casa.dormitorios}} </div>
+                    <div id="suite"> Suítes: {{casa.suites}} </div>
+                </div>
+                <div id="qlqr">
+                    <div id="area"> Área Construída: {{casa.m2_construido}} m² </div>
+                    <div id="area">Área Total: {{casa.m2_total}} m² </div>
+                </div>
+        <div id="descricao"> 
+        <ul>
+            <li> Área de serviço: {% if casa.area_servico == True %} Sim {% else %} Não {% endif %} </li>
+            <li> Churrasqueira: {% if casa.churrasqueira == True %} Sim {% else %} Não {% endif %} </li>
+            <li>  Piscina: {% if casa.piscina == True %} Sim {% else %} Não {% endif %}</li>
+            <li> Garagem: {{casa.vagas}} vagas </li>
+        </div>
+        </div>
     
+    </div>
     
-
-
   
 {% endfor %}
 {% else %}

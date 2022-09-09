@@ -1,37 +1,116 @@
-.casa-container {
+*
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+#robson
+{   
     margin: auto;
-    width: 99%;
-    height: 22em;
-    background: #D9D9D9;
-    border-radius: 22px;
-    display: grid;
+	width: 90%;
+	height: 260px;
+	border-radius: 20px;
+	background-color: #D9D9D9;
+	font-family: verdana;
+    margin-bottom: 10px;
 }
 
-.dados-container {
-    width:20vw;
-    height: 50vh;
-    min-width: 144px;
-    min-height: 144px;
-    background: transparent;
-    border-radius: 15px;
-    display: flex;
-    padding:1%;
-    border-radius: 22px;
-    background-color: aquamarine;
+#capa
+{
+	width: 250px;
+	height: 250px;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
+}	
 
+img
+{
+	width: 250px;
+	height: 250px;
+	border-radius: 20px;
+}	
+
+
+
+#informe
+{
+	width: 77.5%;
+	height: 180px;
+	float: right;
+	border-radius: 0px 20px 20px 0px;
+	margin-left: 5px;
+	margin-top: 5px;
 }
 
+#titulo
+{
+	font-family: verdana;
+	font-size: 20px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
 
-.foto-container {
-    width:20vw;
-    height: 50vh;
-    min-width: 144px;
-    min-height: 144px;
-    background: transparent;
-    border-radius: 15px;
-    display: flex;
-    padding:1%;
-    border-radius: 22px;
+#valor
+{
+	font-family: verdana;
+	font-size: 24px;
+	margin-top: 10px;
+	margin-left: 5px;
+	color: #319502;
+	font-weight: bold;
+}
 
+#qlqr
+{
+	width: 250px;
+	height: 75px;
+	float: left;
+	margin-top: 10px;
+}
 
+#dorme
+{
+	font-family: verdana;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+#suite
+{
+	font-family: verdana;
+	font-size: 18px;
+	margin-top: 5px;
+	margin-left: 5px;
+	
+}
+
+#area
+{
+	font-size: 18px;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+#descricao
+{
+	width: 600px;
+	height: 20px;
+	float: left;
+	margin-top: -7px;
+}
+
+#descricao ul
+{
+	list-style: none;
+}
+
+#descricao ul li
+{
+	display: inline;
+	padding: 13px;
+	line-height: 45px;
+	font-size: 13px;
 }
