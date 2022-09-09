@@ -1,29 +1,30 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
-<h1>Teste</h1>
 
 {% if casas %}
     {% for casa in casas %}
 
-    <div class="card">
-        <div class="card-body">
+<div class="casa-container">
+            <div class="foto-container"><img src="{{casa.foto.url}}" style="border-radius: 22px;"></div>
+
+            <div class="dados-container">
+            <h2>Casa em {{casa.bairro}}, {{casa.cidade}}</h2>
             
-        <h2 class="card-title">{{casa.nome_exibicao}}</h2>
-        <p class="card-text">R$ {{casa.valor}}</p>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Área Construída: {{casa.m2_construido}} m²</li>
-            <li class="list-group-item">Área Total: {{casa.m2_total}} m²</li>
-            <li class="list-group-item">Dormitórios: {{casa.dormitorios}}</li>
-            <li class="list-group-item">Suítes: {{casa.suites}}</li>
-            <li class="list-group-item">Garagem: {{casa.vagas}} vagas</li>
-            <li class="list-group-item">Área de serviço: {% if casa.area_servico == True %} Sim {% else %} Não {% endif %}</li>
-            <li class="list-group-item">Churrasqueira: {% if casa.churrasqueira == True %} Sim {% else %} Não {% endif %}</li>
-            <li class="list-group-item">Piscina: {% if casa.piscina == True %} Sim {% else %} Não {% endif %}</li>
-            <li class="list-group-item">Área Gourmet: {% if casa.area_gourmet == True %} Sim {% else %} Não {% endif %}</li>
-        </ul>
-    </div>
-    </div>
+            <h3>R$ {{casa.valor}}</h3>
+            <h4>Área Construída: {{casa.m2_construido}} m²</h4>
+            <h4>Área Total: {{casa.m2_total}} m²</h4>
+            Dormitórios: {{casa.dormitorios}}
+            Suítes: {{casa.suites}}
+            Garagem: {{casa.vagas}} vagas
+            Área de serviço: {% if casa.area_servico == True %} Sim {% else %} Não {% endif %}
+            Churrasqueira: {% if casa.churrasqueira == True %} Sim {% else %} Não {% endif %}
+            Piscina: {% if casa.piscina == True %} Sim {% else %} Não {% endif %}
+            Área Gourmet: {% if casa.area_gourmet == True %} Sim {% else %} Não {% endif %}
+
+    
+    
 
 
   
