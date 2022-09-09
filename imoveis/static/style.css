@@ -5,24 +5,32 @@
 	border: 0;
 }
 
-#robson
+.robson
 {   
     margin: auto;
 	width: 90%;
-	height: 260px;
+	height: fit-content;
+	min-height: 260px;
 	border-radius: 20px;
 	background-color: #D9D9D9;
 	font-family: verdana;
     margin-bottom: 10px;
+	align-items: center;
+
+	
 }
 
-#capa
+
+
+
+.capa
 {
 	width: 250px;
 	height: 250px;
 	margin-left: 5px;
 	margin-top: 5px;
 	float: left;
+	
 }	
 
 img
@@ -34,83 +42,174 @@ img
 
 
 
-#informe
+.informe
 {
-	width: 77.5%;
+	width: 50%;
 	height: 180px;
-	float: right;
+	float: left;
 	border-radius: 0px 20px 20px 0px;
 	margin-left: 5px;
 	margin-top: 5px;
+	line-break: normal;
 }
 
-#titulo
+.titulo
 {
 	font-family: verdana;
 	font-size: 20px;
 	margin-top: 5px;
 	margin-left: 5px;
+	line-break: normal;
 }
 
-#valor
+.valor
 {
 	font-family: verdana;
 	font-size: 24px;
-	margin-top: 10px;
 	margin-left: 5px;
 	color: #319502;
 	font-weight: bold;
+	line-break: normal;
 }
 
-#qlqr
+.qlqr
 {
 	width: 250px;
 	height: 75px;
 	float: left;
-	margin-top: 10px;
+	line-break: normal;
+
 }
 
-#dorme
+.dorme
 {
 	font-family: verdana;
 	font-size: 18px;
 	margin-top: 5px;
 	margin-left: 5px;
+	line-break: normal;
 }
 
-#suite
+.suite
 {
 	font-family: verdana;
 	font-size: 18px;
 	margin-top: 5px;
 	margin-left: 5px;
+	line-break: normal;
 	
 }
 
-#area
+.area
 {
 	font-size: 18px;
 	margin-top: 5px;
 	margin-left: 5px;
+	line-break: normal;
 }
-
-#descricao
+/**
+.descricao
 {
-	width: 600px;
+	width: auto;
 	height: 20px;
 	float: left;
 	margin-top: -7px;
+	line-break: normal;
+	color: #5f5f5f;
 }
 
-#descricao ul
+.descricao ul
 {
 	list-style: none;
+	line-break: normal;
 }
 
-#descricao ul li
+.descricao ul li
 {
 	display: inline;
 	padding: 13px;
 	line-height: 45px;
-	font-size: 13px;
+	font-size: 10px;
+	line-break: normal;
 }
+**/
+@media only screen and (max-width: 768px) {
+	.robson {
+		background-color: #D9D9D9;
+		display: grid;
+		height: fit-content;
+		margin: auto;
+		text-align: center;
+		align-items: center;
+		text-align: center;
+		margin: auto;
+		margin-top: 4%;
+		margin-bottom: 4%;
+	}
+	.capa {
+		margin: auto;
+		margin-top: 4%;
+	}
+
+	.titulo
+	{
+	font-family: verdana;
+	font-size: 16px;
+	line-break: normal;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	}
+
+	.qlqr
+{
+
+	line-break: normal;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+	width: 100%;
+
+}
+
+.dorme
+{
+	font-family: verdana;
+	font-size: 14px;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+}
+
+.suite
+{
+	font-family: verdana;
+	font-size: 14px;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+
+	
+}
+
+.area
+{
+	font-size: 14px;
+	line-break: normal;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+}
+
+
+
+.informe
+{
+	width: 100%;
+	height: auto;
+	align-items: center;
+	text-align: center;
+	margin: auto;
+}
+
+  }
