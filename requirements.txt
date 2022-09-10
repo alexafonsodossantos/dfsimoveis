@@ -11,7 +11,6 @@ django-phonenumber-field==6.3.0
 django-webpack-loader==1.6.0
 djangorestframework==3.13.1
 ecdsa==0.18.0b2
-esptool==4.2.dev0
 h11==0.13.0
 idna==3.3
 numpy==1.22.3
