@@ -12,7 +12,7 @@
     <div class="robson">
         <div class="capa"> <img src="{{casa.foto.url}}"> </div>
         <div class="informe">
-            <div class="titulo"> Casa em {{casa.bairro}}, {{casa.cidade}} </div>
+            <div class="titulo"> <a href="/detalhes/{{casa.id}}">Casa em {{casa.bairro}}, {{casa.cidade}} </a> </div>
             <div class="valor"> R$ {{casa.valor}} </div>
                 <div class="qlqr">
                     <div class="dorme"> Dormitórios: {{casa.dormitorios}} </div>
@@ -23,7 +23,7 @@
                         </ul>
                 </div>
                 <div class="qlqr">
-                    <div class="area"> Área Construída: {{casa.m2_construclasso}} m² </div>
+                    <div class="area"> Área Construída: {{casa.m2_construido}} m² </div>
                     <div class="area">Área Total: {{casa.m2_total}} m² </div>
                     <ul>
 
