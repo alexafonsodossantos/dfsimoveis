@@ -2,7 +2,7 @@
 {% block content %}
 {% load static %}
 
-
+<center><h1>Encontre o imóvel ideal para você!</h1></center>
 {% if casas %}
     {% for casa in casas %}
 
@@ -17,18 +17,25 @@
                 <div class="qlqr">
                     <div class="dorme"> Dormitórios: {{casa.dormitorios}} </div>
                     <div class="suite"> Suítes: {{casa.suites}} </div>
+                    <ul>
+                        <li> <img src="{%static 'images/aserv.png'%}" style="width:20px; height: 20px; margin-right: 5px;">Área Serviço: Sim </li>
+                        <li><img src="{%static 'images/agourm.png'%}" style="width:20px; height: 20px;  margin-right: 5px;">Área Gourmet: Sim </li>
+                        </ul>
                 </div>
                 <div class="qlqr">
                     <div class="area"> Área Construída: {{casa.m2_construclasso}} m² </div>
                     <div class="area">Área Total: {{casa.m2_total}} m² </div>
+                    <ul>
+
+                    
+                    <li><img src="{%static 'images/pisci.png'%}" style="width:20px; height: 20px;  margin-right: 5px;">Piscina: Sim </li>
+                    <li><img src="{%static 'images/garage.png'%}" style="width:20px; height: 20px;  margin-right: 5px;">Garagem: X vagas </li>
+                </ul>
                 </div>
                 
                 <div class="descricao"> 
-                    <ul>
-                        <li> Área Serviço: Sim </li>
-                        <li> Área Gourmet: Sim </li>
-                        <li> Piscina: Sim </li>
-                        <li> Garagem: 2 vagas </li>
+                    
+                       
                     </div>
         </div>
         

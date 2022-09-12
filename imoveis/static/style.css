@@ -60,7 +60,7 @@ img
 .titulo
 {
 	font-family: verdana;
-	font-size: 22px;
+	font-size: 24px;
 	margin-top: 5px;
 	margin-left: 5px;
 	line-break: normal;
@@ -69,7 +69,7 @@ img
 .valor
 {
 	font-family: verdana;
-	font-size: 24px;
+	font-size: 26px;
 	margin-left: 5px;
 	color: #319502;
 	font-weight: bold;
@@ -89,27 +89,30 @@ img
 {
 	font-family: verdana;
 	font-size: 18px;
-	margin-top: 5px;
+	margin-top: 15px;
 	margin-left: 5px;
 	line-break: normal;
+	color: #5f5f5f;
 }
 
 .suite
 {
 	font-family: verdana;
 	font-size: 18px;
-	margin-top: 5px;
+	margin-top: 15px;
 	margin-left: 5px;
 	line-break: normal;
+	color: #5f5f5f;
 	
 }
 
 .area
-{
+{	color: #5f5f5f;
 	font-size: 18px;
-	margin-top: 5px;
+	margin-top: 15px;
 	margin-left: 5px;
 	line-break: normal;
+	color: #5f5f5f;
 }
 
 .descricao
@@ -117,24 +120,25 @@ img
 	width: auto;
 	height: 20px;
 	float: left;
-	margin-top: -7px;
+	margin-top: 20px;
 	line-break: normal;
 	color: #5f5f5f;
 }
 
-.descricao ul
+
+.qlqr ul
 {
+	margin-top: 20px;
 	list-style: none;
 	line-break: normal;
+	color: #5f5f5f;
 }
 
-.descricao ul li
+.qlqr ul li
 {
-	display: inline;
-	padding: 10px;
-	line-height: 35px;
-	font-size: 10px;
+	font-size: 14px;
 	line-break: normal;
+	color: #5f5f5f;
 }
 
 @media only screen and (max-width: 768px) {
@@ -225,14 +229,14 @@ img
 	visibility: hidden;
 }
 
-.descricao ul
+.qlqr ul
 {
 
 	display: none;
 	visibility: hidden;
 }
 
-.descricao ul li
+.qlqr ul li
 {
 	display: none;
 	visibility: hidden;
