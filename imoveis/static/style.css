@@ -33,6 +33,14 @@
 
 
 
+.robson a {
+	text-decoration: none;
+	color: black;
+	font-family: InriaSans;
+
+}
+
+
 
 .capa
 {
@@ -60,10 +68,10 @@
 	height: 180px;
 	float: left;
 	border-radius: 0px 20px 20px 0px;
-	margin-left: 5px;
+	margin-left: 10px;
 	margin-top: 5px;
 	line-break: normal;
-	margin-left: 4%;
+	margin-left: 10%;
 	margin-top: 1%;
     font-family: InriaSans;
 }
@@ -89,9 +97,17 @@
     font-family: InriaSans;
 }
 
+.valor a {
+	text-decoration: none;
+	color:#319502;
+	font-family: InriaSans;
+
+}
+
+
 .qlqr
 {
-	width: 250px;
+	margin-left: 5px;
 	height: 75px;
 	float: left;
 	line-break: normal;
@@ -126,7 +142,7 @@
 {	color: #5f5f5f;
 	font-size: 18px;
 	margin-top: 15px;
-	margin-left: 5px;
+	margin-left: 10px;
 	line-break: normal;
 	color: #5f5f5f;
     font-family: InriaSans;
@@ -155,13 +171,14 @@
 
 .qlqr ul li
 {
+	margin-left: 10px;
 	font-size: 14px;
 	line-break: normal;
 	color: #5f5f5f;
     font-family: InriaSans;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 768px) {
 	.robson {
 		background-color: #ffffff;
 		display: grid;
