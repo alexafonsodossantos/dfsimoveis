@@ -6,11 +6,7 @@
     
 }
 
-@font-face {
-    font-family: 'InriaSans';
-    src: local('InriaSans'),
-         url('{% static 'InriaSans.ttf' %} format("truetype")')
-  }
+
 
 
 
@@ -22,11 +18,11 @@
 	min-height: 260px;
 	border-radius: 20px;
 	background-color: #ffffff;
-	font-family: verdana;
+
     margin-bottom: 10px;
 	align-items: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    font-family: InriaSans;
+
 
 	
 }
@@ -36,7 +32,7 @@
 .robson a {
 	text-decoration: none;
 	color: black;
-	font-family: InriaSans;
+
 
 }
 
@@ -73,34 +69,34 @@
 	line-break: normal;
 	margin-left: 10%;
 	margin-top: 1%;
-    font-family: InriaSans;
+
 }
 
 .titulo
 {
-	font-family: verdana;
+
 	font-size: 24px;
 	margin-top: 5px;
 	margin-left: 5px;
 	line-break: normal;
-    font-family: InriaSans;
+
 }
 
 .valor
 {
-	font-family: verdana;
+
 	font-size: 26px;
 	margin-left: 5px;
 	color: #319502;
 	font-weight: bold;
 	line-break: normal;
-    font-family: InriaSans;
+
 }
 
 .valor a {
 	text-decoration: none;
 	color:#319502;
-	font-family: InriaSans;
+
 
 }
 
@@ -111,30 +107,30 @@
 	height: 75px;
 	float: left;
 	line-break: normal;
-    font-family: InriaSans;
+
 
 }
 
 .dorme
 {
-	font-family: verdana;
+
 	font-size: 18px;
 	margin-top: 15px;
 	margin-left: 5px;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 }
 
 .suite
 {
-	font-family: verdana;
+
 	font-size: 18px;
 	margin-top: 15px;
 	margin-left: 5px;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 	
 }
 
@@ -145,7 +141,7 @@
 	margin-left: 10px;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 }
 
 .descricao
@@ -156,7 +152,7 @@
 	margin-top: 20px;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 }
 
 
@@ -166,7 +162,7 @@
 	list-style: none;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 }
 
 .qlqr ul li
@@ -175,7 +171,7 @@
 	font-size: 14px;
 	line-break: normal;
 	color: #5f5f5f;
-    font-family: InriaSans;
+
 }
 
 .carousel slide {
@@ -184,7 +180,7 @@
 	margin:auto
 }
 
-.list-group list-group-flush {
+.list-group, list-group-flush {
 	width: 90% ; 
 	margin: auto; 
 	font-size: medium;
@@ -216,7 +212,7 @@ iframe {
 
 	.titulo
 	{
-	font-family: verdana;
+
 	font-size: 20px;
 	line-break: normal;
 	align-items: center;
@@ -238,7 +234,7 @@ iframe {
 
 .dorme
 {
-	font-family: verdana;
+
 	font-size: 14px;
 	align-items: center;
 	text-align: center;
@@ -247,7 +243,7 @@ iframe {
 
 .suite
 {
-	font-family: verdana;
+
 	font-size: 14px;
 	align-items: center;
 	text-align: center;
@@ -306,7 +302,7 @@ iframe {
 	height:60vh;
 }
 	
-.list-group list-group-flush {
+.list-group, list-group-flush {
 	width: 100vw;
 }	
 	
