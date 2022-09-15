@@ -180,11 +180,21 @@
 
 .carousel slide {
 	width: 90%;
+	height:30%; 
+	margin:auto
 }
 
 .list-group list-group-flush {
-	width: 80vw;
+	width: 90% ; 
+	margin: auto; 
+	font-size: medium;
 }
+
+iframe {
+	width:70vw;
+	height:60vh;
+}
+
 
 @media only screen and (max-width: 768px) {
 	.robson {
@@ -292,7 +302,8 @@
 }
 
 iframe {
-	width:100%;
+	width:100vw;
+	height:60vh;
 }
 	
 .list-group list-group-flush {
