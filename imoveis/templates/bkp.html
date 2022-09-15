@@ -1,0 +1,40 @@
+
+<ul class="list-group list-group-flush" style="width: 50% ; float: right;">
+    <li class="list-group-item">ID: {{imovel.id}}</li>
+    <li class="list-group-item">Cadastrado em: {{imovel.data_cadastro}}</li>
+    <li class="list-group-item">Endereço: {{imovel.endereco}}</li>
+    <li class="list-group-item">Bairro: {{imovel.bairro}}</li>
+    <li class="list-group-item">Cidade: {{imovel.cidade}}</li>
+    <li class="list-group-item">Área construída:{{imovel.m2_construido}} m²</li>
+    <li class="list-group-item">Área total: {{imovel.m2_total}} m²</li>
+    <li class="list-group-item">Dormitórios: {{imovel.dormitorios}}</li>
+    <li class="list-group-item">Suítes: {{imovel.suites}}</li>
+    <li class="list-group-item">Vagas: {{imovel.vagas}}</li>
+    <li class="list-group-item">Área de serviço: {% if imovel.area_servico == True %} Sim {% else %} Não {% endif %}</li>
+    <li class="list-group-item">Churrasqueira: {% if imovel.churrasqueira == True %} Sim {% else %} Não {% endif %}</li>
+    <li class="list-group-item">Piscina: {% if imovel.piscina == True %} Sim {% else %} Não {% endif %}</li>
+    <li class="list-group-item">Área Gourmet: {% if imovel.area_gourmet == True %} Sim {% else %} Não {% endif %}</li>
+    <li class="list-group-item">Descrição: <p>{{imovel.descricao}}</p></li>
+    
+
+
+
+    
+
+</ul>
+
+
+
+<!--
+
+    vagas = models.IntegerField()
+    area_servico = models.BooleanField()
+    churrasqueira = models.BooleanField()
+    piscina = models.BooleanField()
+    area_gourmet = models.BooleanField()
+    descricao = models.TextField()
+-->
+
+
+
+

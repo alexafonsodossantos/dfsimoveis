@@ -134,3 +134,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+GOOGLE_API_KEY = "AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg"

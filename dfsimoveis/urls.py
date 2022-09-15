@@ -8,5 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('detalhes/<int:imovel_id>', views.imovel, name='imovel'),
+    path('cadastro', views.cadastro_imovel, name='cadastro'),
+    path('salvar_imovel', views.salvar_imovel, name='salvar')
 ]
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
