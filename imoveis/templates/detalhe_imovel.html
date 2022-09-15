@@ -12,7 +12,7 @@
 
 
 <div id="conteudo" style="width:100% ; height:100%;">
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 70%; height:30%; margin:auto">
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
             <img class="d-block w-70 h-50" src="{{imovel.foto.url}}" alt="First slide">
@@ -50,7 +50,7 @@
 
 <center><h2>Localização</h2>
     <br>
-<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg&q={{imovel.endereco}},{{imovel.bairro}}-{{imovel.cidade}}&zoom=18&maptype=roadmap" style="width:70vw; height:60vh;"></iframe>
+<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg&q={{imovel.endereco}},{{imovel.bairro}}-{{imovel.cidade}}&zoom=18&maptype=roadmap"></iframe>
 </center>
 
 </div>
@@ -60,7 +60,7 @@
 </center>
 <br>
 
-<ul class="list-group list-group-flush" style="width: 70% ; margin: auto; font-size: medium;">
+<ul class="list-group list-group-flush">
     <li class="list-group-item"><img src="{%static 'images/endereco.png'%}" style="width:20px; height: 20px;  margin-right: 5px;opacity:0.7;">Endereço: {{imovel.endereco}}, {{imovel.bairro}} - {{imovel.cidade}}</li>
     <li class="list-group-item"><img src="{%static 'images/area_c.png'%}" style="width:20px; height: 20px;  margin-right: 5px;opacity:0.7;">Área construída:{{imovel.m2_construido}} m²</li>
     <li class="list-group-item"><img src="{%static 'images/area_t.png'%}" style="width:20px; height: 20px;  margin-right: 5px;opacity:0.7;">Área total: {{imovel.m2_total}} m²</li>
@@ -81,6 +81,6 @@
 </ul>
 
 <center><h2>Compartilhe esse imóvel</h2>
-<a href="whatsapp://send?https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}" data-action="share/whatsapp/share"><img src="{%static 'images/wpp.png'%}" style="width:100px ; height: 100px;"></a>
+<a href="whatsapp://send?text=https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}" data-action="share/whatsapp/share"><img src="{%static 'images/wpp.png'%}" style="width:100px ; height: 100px;"></a>
 </center>
 {% endblock %}
