@@ -22,7 +22,7 @@
     {% for casa in casas %}
 
     <div class="robson">
-        <div class="capa">
+       <a href="/detalhes/{{casa.id}}"> <div class="capa">
             <div id="carouselExampleIndicators{{casa.id}}" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -52,10 +52,10 @@
                 </a>
             </div>
             </div>
-            
+        </a>
         <div class="informe">
             <div class="titulo"> <a href="/detalhes/{{casa.id}}">Casa em {{casa.bairro}}, {{casa.cidade}} </a> </div>
-            <div class="valor"><a href="/detalhes/{{casa.id}}"> R$ {{casa.valor}} </a></div>
+            <div class="valor"><a href="/detalhes/{{casa.id}}"> R$ {{casa.valor|floatformat:2}} </a></div>
                 <div class="qlqr">
                     <div class="dorme"> Dormitórios: {{casa.dormitorios}} </div>
                     <div class="suite"> Suítes: {{casa.suites}} </div>
