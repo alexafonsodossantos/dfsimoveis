@@ -91,7 +91,9 @@
 <center>
     <h1>Valores</h1>
     <p class="valor">R$ {{imovel.valor|floatformat:2}}</p>
-    
+    <a href="https://api.whatsapp.com/send?phone=5519989081276&text=Ol%C3%A1!%20Tenho%20interesse%20no%20im%C3%B3vel%20Cod.%20{{imovel.id}}%20em%20{{imovel.bairro}}%2C%20{{imovel.cidade}}" class="btn btn-primary"  style="font-size:large">Converse com um corretor agora mesmo</a>
+    <br>
+    <Br>
 
 </center>
 
@@ -115,6 +117,6 @@
 
 
 <center><h2>Compartilhe esse imóvel</h2>
-<a href="whatsapp://send?text=https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}" data-action="share/whatsapp/share"><img src="{%static 'images/wpp.png'%}" style="width:100px ; height: 100px;"></a>
+<a href="whatsapp://send?text=https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}" data-action="share/whatsapp/share"><img src="{%static 'images/wpp.png'%}" style="width:60px ; height: 60px;"></a>
 </center>
 {% endblock %}
