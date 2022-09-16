@@ -1,7 +1,12 @@
 from django.db import models
 from django.utils import timezone
-# Create your models here.
 from PIL import Image
+from io import BytesIO
+from django.core.files.uploadedfile import InMemoryUploadedFile
+import sys
+
+
+# Create your models here.
 class Casa(models.Model):
     id = models.BigAutoField(primary_key=True)
     data_cadastro = models.DateTimeField(default=timezone.now())
@@ -20,16 +25,75 @@ class Casa(models.Model):
     piscina = models.BooleanField()
     area_gourmet = models.BooleanField()
     descricao = models.TextField()
-    foto = models.ImageField(upload_to="imoveis/static/images")
-    lat = models.DecimalField(max_digits=9, decimal_places=6)
-    lng = models.DecimalField(max_digits=9, decimal_places=6)
-
+    foto1 = models.ImageField(upload_to="imoveis/static/images")
+    foto2 = models.ImageField(upload_to="imoveis/static/images")
+    foto3 = models.ImageField(upload_to="imoveis/static/images")
+    foto4 = models.ImageField(upload_to="imoveis/static/images")
     def save(self):
-        super().save()  # saving image first
+		#Opening the uploaded image
+        fotos = [self.foto1, self.foto2, self.foto3, self.foto4]
 
-        img = Image.open(self.foto.path) # Open image using self
+        im = Image.open(fotos[0])
 
-        if img.height > 600 or img.width > 800 or img.height < 600 or img.width < 800: 
-            new_img = (800, 600)
-            img.thumbnail(new_img)
-            img.save(self.foto.path)  # saving image at the same path
+        output = BytesIO()
+
+        #Resize/modify the image
+        im = im.resize( (1024,768) )
+
+        #after modifications, save it to the output
+        im.save(output, format='JPEG', quality=100)
+        output.seek(0)
+
+        #change the imagefield value to be the newley modifed image value
+        fotos1 = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %fotos[0].name.split('.')[0], 'image/jpeg', sys.getsizeof(output), None)
+
+        super(Casa,self).save()
+
+        im = Image.open(self.foto2)
+
+        output = BytesIO()
+
+        #Resize/modify the image
+        im = im.resize( (1024,768) )
+
+        #after modifications, save it to the output
+        im.save(output, format='JPEG', quality=100)
+        output.seek(0)
+
+        #change the imagefield value to be the newley modifed image value
+        self.foto2 = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.foto2.name.split('.')[0], 'image/jpeg', sys.getsizeof(output), None)
+
+        super(Casa,self).save()
+
+
+        im = Image.open(self.foto3)
+
+        output = BytesIO()
+
+        #Resize/modify the image
+        im = im.resize( (1024,768) )
+
+        #after modifications, save it to the output
+        im.save(output, format='JPEG', quality=100)
+        output.seek(0)
+
+        #change the imagefield value to be the newley modifed image value
+        self.foto3 = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.foto3.name.split('.')[0], 'image/jpeg', sys.getsizeof(output), None)
+
+        super(Casa,self).save()
+
+        im = Image.open(self.foto4)
+
+        output = BytesIO()
+
+        #Resize/modify the image
+        im = im.resize( (1024,768) )
+
+        #after modifications, save it to the output
+        im.save(output, format='JPEG', quality=100)
+        output.seek(0)
+
+        #change the imagefield value to be the newley modifed image value
+        self.foto4 = InMemoryUploadedFile(output,'ImageField', "%s.jpg" %self.foto4.name.split('.')[0], 'image/jpeg', sys.getsizeof(output), None)
+
+        super(Casa,self).save()

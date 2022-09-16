@@ -76,7 +76,10 @@ def salvar_imovel(request):
         area_gourmet = False
     
     descricao = request.POST.get('descricao')
-    foto = request.FILES.get('foto')
+    foto1 = request.FILES.get('foto1')
+    foto2 = request.FILES.get('foto2')
+    foto3 = request.FILES.get('foto3')
+    foto4 = request.FILES.get('foto4')
     lat = request.POST.get('lat')
     lng = request.POST.get('lng')
 
@@ -95,8 +98,10 @@ def salvar_imovel(request):
     piscina=piscina,
     area_gourmet=area_gourmet,
     descricao=descricao,
-    foto=foto,
-    lat=lat,
-    lng=lng      )
+    foto1=foto1,
+    foto2=foto2,
+    foto3=foto3,
+    foto4=foto4,
+   )
 
     return HttpResponseRedirect('/')
