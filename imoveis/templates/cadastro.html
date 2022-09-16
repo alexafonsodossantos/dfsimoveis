@@ -9,7 +9,7 @@
 </style> 
 {% if user.is_authenticated %} 
 <form method="post" enctype="multipart/form-data" class="form-group" style="text-align:center ;">  
-<input type="hidden" name="csrfmiddlewaretoken" value="ZuVNjJT201AtBrK4DhbS3P227TQFVQ098zyvNPK5fjLKa3jqB6Qrh1IhP2nhQQzt">  
+{% csrf_token %}
 <p>
 <label for="id_data_cadastro">Data cadastro:</label>
 <input type="text" name="data_cadastro" class="form-control" value="16/09/2022 19:32:34" required id="id_data_cadastro">
