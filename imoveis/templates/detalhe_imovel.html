@@ -2,6 +2,50 @@
 {% load static %}
 
 {% block content %}
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '{599373841672782}',
+            xfbml: true,
+            version: 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+    };
+    function isMobile() {
+        const toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+        return toMatch.some((toMatchItem) => {
+            return navigator.userAgent.match(toMatchItem);
+        });
+    }
+    function messengerShare() {
+        url = 'https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}';
+        if (isMobile()) {
+            window.location.href = "fb-messenger://share/?link=" + url;
+        } else {
+            FB.ui({
+                method: 'send',
+                link: url,
+                redirect_uri: url
+            });
+        }
+    }
+    </script>
+    <script>
+        function getLocation() {
+          if (navigator.geolocation) {
+            console.log(navigator.geolocation.getCurrentPosition(showPosition));
+          } else {
+            window.alert("Geolocation is not supported by this browser.");
+          }
+        }
+        
+        function showPosition(position) {
+            console.log("Latitude: " + position.coords.latitude);
+            console.log("Longitude: " + position.coords.longitude);
+            var mapsUrl = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg&origin="+String(position.coords.latitude)+","+String(position.coords.longitude)+"&destination={{imovel.endereco}},{{imovel.bairro}},{{imovel.cidade}}&avoid=tolls|highways"
+            document.getElementById('mapa').src = mapsUrl
+        }
+        </script> 
 
 <title>Casa em {{imovel.bairro}}, {{imovel.cidade}} | DFS Imóveis</title>
 
@@ -57,7 +101,11 @@
 
 <center><h2>Localização</h2>
     <br>
-<iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg&q={{imovel.endereco}},{{imovel.bairro}}-{{imovel.cidade}}&zoom=18&maptype=roadmap"></iframe>
+<iframe id="mapa" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg&q={{imovel.endereco}},{{imovel.bairro}}-{{imovel.cidade}}&zoom=18&maptype=roadmap"></iframe>
+<br>
+
+<button class="btn btn-primary" style="font-size:large ;" onClick="getLocation()">Ver direções</button>
+
 </center>
 
 </div>
@@ -126,34 +174,7 @@
 <a href="javascript:;" class="messenger-wrap" onclick="messengerShare()">
     <img src="{%static 'images/messenger.png'%}" style="width:60px ; height: 60px;">
 </a>
-<script>
-window.fbAsyncInit = function() {
-    FB.init({
-        appId: '{599373841672782}',
-        xfbml: true,
-        version: 'v2.9'
-    });
-    FB.AppEvents.logPageView();
-};
-function isMobile() {
-    const toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
-    return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
-    });
-}
-function messengerShare() {
-    url = 'https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}';
-    if (isMobile()) {
-        window.location.href = "fb-messenger://share/?link=" + url;
-    } else {
-        FB.ui({
-            method: 'send',
-            link: url,
-            redirect_uri: url
-        });
-    }
-}
-</script>
+
 
 
 
