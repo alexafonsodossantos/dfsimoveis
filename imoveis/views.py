@@ -1,8 +1,14 @@
 from django.shortcuts import render
-from .models import Casa
+from .models import Casa, Cota
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
+import locale
+import re
+import requests
+from bs4 import BeautifulSoup
+
+
 # Create your views here.
 from imoveis.forms import CadastroImovel
 def index(request):
@@ -15,7 +21,8 @@ def index(request):
 
 def imovel(request, imovel_id):
     imovel = get_object_or_404(Casa, pk=imovel_id)
-    return render(request, 'detalhe_imovel.html', {'imovel': imovel})
+    cota = Cota.objects.filter(valor__range=(imovel.valor, imovel.valor*2))[0]
+    return render(request, 'detalhe_imovel.html', {'imovel': imovel, 'cota':cota})
 
 
 def cadastro_imovel(request):
@@ -105,3 +112,80 @@ def salvar_imovel(request):
    )
 
     return HttpResponseRedirect('/')
+
+
+def update_agent(request):
+    class Cotas:
+        url = ""
+        carta = ""
+        credito = 0
+        entrada = 0
+        parcelas = ""
+        segmento = "Imóveis"
+        vencimento = ""
+        codigo = 0
+
+
+    locale.setlocale(locale.LC_MONETARY, "pt_BR.UTF-8")
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:55.0) Gecko/20100101 Firefox/55.0',
+    }
+
+    html_content = requests.get("https://contempladoschapeco.com.br/consorcio/imovel/", headers=headers).text
+    soup = BeautifulSoup(html_content,features="html.parser")
+    lista_maior = []
+    obj_list = []
+
+    table = soup.find_all('table')
+    tds = soup.find_all('td')
+
+    for a in tds:
+        data = a.contents
+        lista_maior.append(data)
+
+    chunks = [lista_maior[x:x+6] for x in range(0, len(lista_maior), 6)]
+
+    for a in chunks:
+        index = chunks.index(a)
+        obj = Cotas()
+        credito =  int(re.sub('\D','',a[0][0]))/100
+        entrada =   (int(re.sub('\D','',a[1][0]))/100) + (credito * 0.07)
+        try:
+            parcelas =  a[2][0] + " " + a[5][0]
+        except:
+            parcelas =  a[2][0]
+        finally:
+            administradora =  a[3][0]
+            vencimento = "Dia " + a[4][0][0:2]
+
+        obj.credito = credito
+        obj.carta = administradora
+        obj.entrada = entrada
+        obj.parcelas = parcelas
+        obj.vencimento = vencimento
+
+        if administradora == "Caixa":
+            obj.url = "https://www.contempladaaqui.com.br/wp-content/uploads/2021/05/caixa.png"
+        elif administradora == "Bradesco":
+            obj.url = "https://www.contempladaaqui.com.br/wp-content/uploads/2021/07/Bradesco.png"
+        elif administradora == "Itau":
+            obj.url = "https://www.contempladaaqui.com.br/wp-content/uploads/2021/07/Itau.png"
+        elif administradora == "Caixa | SX5":
+            obj.url = "https://www.contempladaaqui.com.br/wp-content/uploads/2021/05/caixa.png"
+        else:
+            obj.url = ""
+
+        obj.codigo  = 12585 + index
+        obj.credito = credito
+        obj.entrada = entrada
+        obj_list.append(obj)
+
+    for a in obj_list:
+        cota = Cota.objects.create(codigo = a.codigo, administradora = a.carta,
+        valor = a.credito, entrada = a.entrada, parcelas = a.parcelas, segmento = a.segmento, vencimento = a.vencimento, img = a.url  )
+
+
+    return HttpResponse("Dados inseridos!")
+
+
+

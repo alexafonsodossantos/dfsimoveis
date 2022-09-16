@@ -5,6 +5,19 @@ from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import sys
 
+class Cota(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    codigo = models.CharField(max_length=140)
+    administradora = models.CharField(max_length=140)
+    valor = models.FloatField()
+    entrada = models.FloatField(max_length=140)
+    parcelas = models.CharField(max_length=140)
+    segmento = models.CharField(max_length=140)
+    vencimento = models.CharField(max_length=140)
+    img = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.codigo)
 
 # Create your models here.
 class Casa(models.Model):
