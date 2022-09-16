@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-*u@w@*(^e@78(d5xb@jnrv0==+rdy$jdm-i&w$f^q@nv$4mqak
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.15.10', 'dfsimoveis.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '192.168.15.10', 'dfsimoveis.herokuapp.com', '192.168.15.225']
 
 
 # Application definition
@@ -132,8 +132,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-
+LOGIN_REDIRECT_URL = "/cadastro"
+LOGOUT_REDIRECT_URL = "/"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-GOOGLE_API_KEY = "AIzaSyBsep33o3nQJ7aGEMyak2QIvS4YaeHIVVg"

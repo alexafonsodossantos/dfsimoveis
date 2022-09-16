@@ -4,6 +4,7 @@ from django.conf import settings
 from imoveis import views
 from django.contrib import admin
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -11,5 +12,6 @@ urlpatterns = [
     path('cadastro', views.cadastro_imovel, name='cadastro'),
     path('salvar_imovel', views.salvar_imovel, name='salvar'),
     path('update_agent', views.update_agent, name='update_agent'),
+    path('accounts/', include("django.contrib.auth.urls")),
 ]
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

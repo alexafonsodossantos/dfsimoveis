@@ -1,12 +1,181 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}  
-    <form method="post" enctype="multipart/form-data">  
-        {% csrf_token %}  
-        {{ form.as_p }}  
-        <button type="submit">Upload</button>  
-    </form>  
+{% block content %}
+<style type="text/css">
+* {
+    font-size: large;
+}
 
+</style> 
+{% if user.is_authenticated %} 
+<form method="post" enctype="multipart/form-data" class="form-group" style="text-align:center ;">  
+<input type="hidden" name="csrfmiddlewaretoken" value="ZuVNjJT201AtBrK4DhbS3P227TQFVQ098zyvNPK5fjLKa3jqB6Qrh1IhP2nhQQzt">  
+<p>
+<label for="id_data_cadastro">Data cadastro:</label>
+<input type="text" name="data_cadastro" class="form-control" value="16/09/2022 19:32:34" required id="id_data_cadastro">
+
+
+</p>
+
+
+<p>
+<label for="id_nome_exibicao">Nome exibição:</label>
+<input type="text" name="nome_exibicao" class="form-control" maxlength="255" required id="id_nome_exibicao">
+
+
+</p>
+
+
+<p>
+<label for="id_endereco">Endereço:</label>
+<input type="text" name="endereco" class="form-control" maxlength="255" required id="id_endereco">
+
+
+</p>
+
+
+<p>
+<label for="id_bairro">Bairro:</label>
+<input type="text" name="bairro" class="form-control" maxlength="255" required id="id_bairro">
+
+
+</p>
+
+
+<p>
+<label for="id_cidade">Cidade:</label>
+<input type="text" name="cidade" class="form-control" maxlength="255" required id="id_cidade">
+
+
+</p>
+
+
+<p>
+<label for="id_valor">Valor:</label>
+<input type="number" name="valor" class="form-control" step="any" required id="id_valor">
+
+
+</p>
+
+
+<p>
+<label for="id_m2_construido">Área construída:</label>
+<input type="number" name="m2_construido" class="form-control" required id="id_m2_construido">
+
+
+</p>
+
+
+<p>
+<label for="id_m2_total">Área total:</label>
+<input type="number" name="m2_total" class="form-control" required id="id_m2_total">
+
+
+</p>
+
+
+<p>
+<label for="id_dormitorios">Dormitórios:</label>
+<input type="number" name="dormitorios" class="form-control" required id="id_dormitorios">
+
+
+</p>
+
+
+<p>
+<label for="id_suites">Suítes:</label>
+<input type="number" name="suites" class="form-control" required id="id_suites">
+
+
+</p>
+
+
+<p>
+<label for="id_vagas">Vagas:</label>
+<input type="number" name="vagas" class="form-control" required id="id_vagas">
+
+
+</p>
+
+
+<p>
+<label for="id_area_servico">Área de serviço:</label>
+<input type="checkbox" name="area_servico" class="form-control" id="id_area_servico">
+
+
+</p>
+
+
+<p>
+<label for="id_churrasqueira">Churrasqueira:</label>
+<input type="checkbox" class="form-control" name="churrasqueira" id="id_churrasqueira">
+
+
+</p>
+
+
+<p>
+<label for="id_piscina">Piscina:</label>
+<input type="checkbox" class="form-control" name="piscina" id="id_piscina">
+
+
+</p>
+
+
+<p>
+<label for="id_area_gourmet">Área gourmet:</label>
+<input type="checkbox" class="form-control" name="area_gourmet" id="id_area_gourmet">
+
+
+</p>
+
+
+<p>
+<label for="id_descricao">Descrição:</label>
+<input type="text" class="form-control" name="descricao" required id="id_descricao">
+
+
+</p>
+
+
+<p>
+<label for="id_foto1">Foto1:</label>
+<input type="file" name="foto1" accept="image/*" required id="id_foto1">
+
+
+</p>
+
+
+<p>
+<label for="id_foto2">Foto2:</label>
+<input type="file" name="foto2" accept="image/*" required id="id_foto2">
+
+
+</p>
+
+
+<p>
+<label for="id_foto3">Foto3:</label>
+<input type="file" name="foto3" accept="image/*" required id="id_foto3">
+
+
+</p>
+
+
+<p>
+<label for="id_foto4">Foto4:</label>
+<input type="file" name="foto4" accept="image/*" required id="id_foto4">
+
+
+  
+
+</p>  
+    <button type="submit">Upload</button>  
+</form>  
+
+{% else %}
+Área restrita. 
+{% endif %}
 
 
 {% endblock %}
