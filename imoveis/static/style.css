@@ -298,8 +298,13 @@ iframe {
 .list-group, list-group-flush {
 	width: 100vw;
 }	
-	
-	
+
+.navbar-brand{
+
+	padding-right: 55vw;
+}
+
+
   }
 
 
