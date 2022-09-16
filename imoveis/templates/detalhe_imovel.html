@@ -118,5 +118,45 @@
 
 <center><h2>Compartilhe esse imóvel</h2>
 <a href="whatsapp://send?text=https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}" data-action="share/whatsapp/share"><img src="{%static 'images/wpp.png'%}" style="width:60px ; height: 60px;"></a>
+
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0&appId={YOUR_FACBOOK_APP_ID}&autoLogAppEvents=1" nonce="ywRETNx8"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<a href="javascript:;" class="messenger-wrap" onclick="messengerShare()">
+    <img src="{%static 'images/messenger.png'%}" style="width:60px ; height: 60px;">
+</a>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+        appId: '{599373841672782}',
+        xfbml: true,
+        version: 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+};
+function isMobile() {
+    const toMatch = [/Android/i, /webOS/i, /iPhone/i, /iPad/i, /iPod/i, /BlackBerry/i, /Windows Phone/i];
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
+function messengerShare() {
+    url = 'https://dfsimoveis.herokuapp.com/detalhes/{{imovel.id}}';
+    if (isMobile()) {
+        window.location.href = "fb-messenger://share/?link=" + url;
+    } else {
+        FB.ui({
+            method: 'send',
+            link: url,
+            redirect_uri: url
+        });
+    }
+}
+</script>
+
+
+
+
 </center>
 {% endblock %}
