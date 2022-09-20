@@ -47,20 +47,21 @@
 <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 
-      <form style="padding:10px ;">
-    <p> Cidade </p>
-    <select class="form-control">
+      <form method="POST" action="imoveis_filter" style="padding:10px ;">
+      {% csrf_token %}
+          <p> Cidade </p>
+    <select class="form-control" id="cidade">
       <option>Todas</option>
     </select>
     <p>Dormitórios</p>
-    <input type="range" id="dorms" name="dorms" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
-    <output>1</output>
+    <input type="range" id="dorms" name="dorms" min="0" max="10" oninput=" if (this.value == 0) {this.nextElementSibling.value = 'Todos'} else {this.nextElementSibling.value = this.value}" value="0">
+    <output name="teste">Todos</output>
     <p>Suítes</p>
-    <input type="range" id="suites" name="suites" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
-    <output>1</output>
+    <input type="range" id="suites" name="suites" min="0" max="10" oninput=" if (this.value == 0) {this.nextElementSibling.value = 'Todos'} else {this.nextElementSibling.value = this.value}" value="0">
+    <output>Todos</output>
     <p>Garagem</p>
-    <input type="range" id="suites" name="suites" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
-    <output>1</output>
+    <input type="range" id="garagem" name="garagem" min="0" max="10" oninput=" if (this.value == 0) {this.nextElementSibling.value = 'Todos'} else {this.nextElementSibling.value = this.value}" value="0">
+    <output>Todos</output>
 	<script>
 	$( function() {
 		$( "#slider-range" ).slider({
@@ -71,6 +72,8 @@
 			values: [ 100000, 300000 ],
 			slide: function( event, ui ) {
 				$( "#amount" ).val( "R$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+        $("#fp_min").val(ui.values[0]);
+        $("#fp_max").val(ui.values[1]);
 			}
 		});
 		$( "#amount" ).val( "R$" + $( "#slider-range" ).slider( "values", 0 ) +
@@ -82,7 +85,10 @@
 
 <p>
 	<label for="amount">Faixa de preço:</label>
-	<input type="text" id="amount" readonly style="border:0; color:#FFFFFF; font-weight:bold; background-color: black;">
+	<input type="text" id="amount" name="f_preco" readonly style="border:0; color:#FFFFFF; font-weight:bold; background-color: black;">
+  <input type="hidden" name="fp_min" id="fp_min" value="100000">
+  <input type="hidden" name="fp_max" id="fp_max" value="3000000">
+
 </p>
 
 <div id="slider-range"></div>
@@ -91,28 +97,28 @@
 <ul>
 
   <li>
-    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <input name="area_servico" class="form-check-input" type="checkbox" value="1" id="area_servico_cb">
     <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
       Área de serviço
     </label>
   </li>
 
   <li>
-    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <input name="piscina" class="form-check-input" type="checkbox" value="1" id="piscina_cb">
     <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
       Piscina
     </label>
   </li>
 
   <li>
-    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <input name="churrasqueira" class="form-check-input" type="checkbox" value="1" id="churrasqueira_cb">
     <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
       Churrasqueira
     </label>
   </li>
 
   <li>
-    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <input  name="area_gourmet" class="form-check-input" type="checkbox" value="1" id="gourmet_cb">
     <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
       Área gourmet
     </label>

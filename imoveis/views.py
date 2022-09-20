@@ -40,6 +40,36 @@ def cadastro_imovel(request):
   
     return render(request, 'cadastro.html', {'form': form})  
 
+
+
+
+def imoveis_filter(request):
+    print(request.POST)
+    dorms = request.POST.get('dorms')
+    suites = request.POST.get('suites')
+    garagem = request.POST.get('garagem')
+
+    area_servico = request.POST.get('area_servico')
+    piscina = request.POST.get('piscina')
+    churrasqueira = request.POST.get('churrasqueira')
+    area_gourmet = request.POST.get('area_gourmet')
+
+    fp_min = request.POST.get('fp_min')
+    fp_max = request.POST.get('fp_max')
+
+    casas = Casa.objects.filter(valor__range=(fp_min, fp_max), dormitorios=dorms)
+    template = loader.get_template('index.html')
+    context = {
+        'casas': casas,
+    }
+    return HttpResponse(template.render(context, request))
+
+
+
+
+
+
+
 def salvar_imovel(request):
     #query_dict = request.POST
     #print(query_dict)

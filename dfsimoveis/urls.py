@@ -12,6 +12,7 @@ urlpatterns = [
     path('cadastro', views.cadastro_imovel, name='cadastro'),
     path('salvar_imovel', views.salvar_imovel, name='salvar'),
     path('update_agent', views.update_agent, name='update_agent'),
+    path('imoveis_filter', views.imoveis_filter, name='imoveis_filter'),
     path('accounts/', include("django.contrib.auth.urls")),
 ]
 urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
