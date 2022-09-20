@@ -6,8 +6,8 @@ function openNav() {
     document.getElementById("mySidebar").style.width = "100%";
     document.getElementById("main").style.marginLeft = width.toString()+"px";
   } else {
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("main").style.marginLeft = "25%";
   }
 
 }
