@@ -9,19 +9,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-    
+    <script src="{% static 'cNavBar.js' %}"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
    
   <nav class="navbar navbar-expand-md bg-dark navbar-dark" style="border-radius:0px ;">
     <!-- Brand -->
-    <a class="navbar-brand" href="/" style="line-height:40px; font-size:large">DFS Imóveis</a>
+    <a class="navbar-brand" href="/" style="line-height:40px; font-size:large"></a>
   
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -32,10 +34,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="/" style="font-size:large ;">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/" style="font-size:large ;">Sobre nossa empresa</a>
+          <a class="nav-link" href="#" onClick="openNav()" style="font-size:large ; color:#FFFFFF"><img src="{%static 'images/search.png'%}" style="width:20px; height: 20px;  margin-right: 5px;">Pesquisar imóveis</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/" style="font-size:large ;">Informações</a>
@@ -43,6 +42,97 @@
       </ul>
     </div>
   </nav> 
+
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+      <form style="padding:10px ;">
+    <p> Cidade </p>
+    <select class="form-control">
+      <option>Todas</option>
+    </select>
+    <p>Dormitórios</p>
+    <input type="range" id="dorms" name="dorms" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
+    <output>1</output>
+    <p>Suítes</p>
+    <input type="range" id="suites" name="suites" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
+    <output>1</output>
+    <p>Garagem</p>
+    <input type="range" id="suites" name="suites" min="1" max="10" oninput="this.nextElementSibling.value = this.value" value="1">
+    <output>1</output>
+	<script>
+	$( function() {
+		$( "#slider-range" ).slider({
+			range: true,
+			min: 50000,
+			max: 3000000,
+      step:1000,
+			values: [ 100000, 300000 ],
+			slide: function( event, ui ) {
+				$( "#amount" ).val( "R$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+			}
+		});
+		$( "#amount" ).val( "R$" + $( "#slider-range" ).slider( "values", 0 ) +
+			" - R$" + $( "#slider-range" ).slider( "values", 1 ) );
+	} );
+	</script>
+</head>
+<body>
+
+<p>
+	<label for="amount">Faixa de preço:</label>
+	<input type="text" id="amount" readonly style="border:0; color:#FFFFFF; font-weight:bold; background-color: black;">
+</p>
+
+<div id="slider-range"></div>
+<br>
+<br>
+<ul>
+
+  <li>
+    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
+      Área de serviço
+    </label>
+  </li>
+
+  <li>
+    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
+      Piscina
+    </label>
+  </li>
+
+  <li>
+    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
+      Churrasqueira
+    </label>
+  </li>
+
+  <li>
+    <input class="form-check-input" type="checkbox" value="" id="area_servico_cb">
+    <label class="form-check-label" for="flexCheckDefault" style="color:#FFFFFF; font-size:medium; margin-left: 20px;">
+      Área gourmet
+    </label>
+  </li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  </form>
+
+  </div>
 {% block content %}
 {% endblock %}
 
