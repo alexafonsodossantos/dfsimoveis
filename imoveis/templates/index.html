@@ -1,21 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<br>
-    <script>
-        function getLocation() {
-          if (navigator.geolocation) {
-            window.alert(navigator.geolocation.getCurrentPosition(showPosition));
-          } else {
-            window.alert("Geolocation is not supported by this browser.");
-          }
-        }
-        
-        function showPosition(position) {
-            window.alert("Latitude: " + position.coords.latitude);
-            window.alert("Longitude: " + position.coords.longitude);
-        }
-        </script> 
+
 <center><h1>Encontre o imóvel ideal para você!</h1></center>
 <br>
 {% if casas %}
