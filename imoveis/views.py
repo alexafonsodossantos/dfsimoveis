@@ -47,7 +47,6 @@ def cadastro_imovel(request):
 
 def imoveis_filter(request):
     casas = Casa.objects.all()
-    print(request.POST)
 
     dorms = request.POST.get('dorms')
     if int(dorms) > 0:
@@ -63,45 +62,26 @@ def imoveis_filter(request):
         casas = Casa.objects.filter(vagas = garagem)
 
         
-#   area_servico = request.POST.get('area_servico')
-#   if area_servico == "1":
-#       area_servico = True
-#   else:
-#       area_servico = False
-#   
-#   if area_servico:
-#       casas = Casa.objects.filter(area_servico= True)
-#
-#   piscina = request.POST.get('piscina')
-#   if piscina == "1":
-#       piscina = True
-#   else:
-#       piscina = False
-#
-#   if piscina:
-#       casas = Casa.objects.filter(piscina = True)
-#   
-#
-#   churrasqueira = request.POST.get('churrasqueira')
-#   if churrasqueira == "1":
-#       churrasqueira = True
-#   else:
-#       churrasqueira = False
-#
-#   if churrasqueira:
-#       casas = Casa.objects.filter(churrasqueira = True)
-#
-#   area_gourmet = request.POST.get('area_gourmet')
-#   if area_gourmet == "1":
-#       area_gourmet = True
-#   else:
-#       area_gourmet = False
-#
-#   if area_gourmet:
-#       casas = Casa.objects.filter(area_gourmet = True)
-#
-#
-#
+    area_servico = request.POST.get('area_servico')
+    if area_servico == "1":
+        casas = Casa.objects.filter(area_servico= True)
+    else:
+        area_servico = False
+
+    piscina = request.POST.get('piscina')
+    if piscina == "1":
+        casas = Casa.objects.filter(piscina = True)
+
+
+    churrasqueira = request.POST.get('churrasqueira')
+    if churrasqueira == "1":
+        casas = Casa.objects.filter(churrasqueira = True)
+
+    area_gourmet = request.POST.get('area_gourmet')
+    if area_gourmet == "1":
+        casas = Casa.objects.filter(area_gourmet = True)
+
+
 #   fp_min = request.POST.get('fp_min')
 #   fp_max = request.POST.get('fp_max')
 #
