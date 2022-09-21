@@ -68,7 +68,7 @@
 			min: 50000,
 			max: 3000000,
       step:10000,
-			values: [ 100000, 300000 ],
+			values: [ 50000, 300000 ],
 			slide: function( event, ui ) {
 				$( "#amount" ).val( "R$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
         $("#fp_min").val(ui.values[0]);
@@ -85,7 +85,7 @@
 <p>
 	<label for="amount">Faixa de preço:</label>
 	<input type="text" id="amount" name="f_preco" readonly style="border:0; color:#FFFFFF; font-weight:bold; background-color: black;">
-  <input type="hidden" name="fp_min" id="fp_min" value="100000">
+  <input type="hidden" name="fp_min" id="fp_min" value="50000">
   <input type="hidden" name="fp_max" id="fp_max" value="3000000">
 
 </p>

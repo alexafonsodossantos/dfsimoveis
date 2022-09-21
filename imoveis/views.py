@@ -73,6 +73,13 @@ def imoveis_filter(request):
         casas = Casa.objects.filter(piscina = True)
 
 
+#    if piscina == "1":
+#        casas = Casa.objects.filter(piscina = True)
+#    else:
+#        casas = Casa.objects.filter(piscina = False)
+
+
+
     churrasqueira = request.POST.get('churrasqueira')
     if churrasqueira == "1":
         casas = Casa.objects.filter(churrasqueira = True)
@@ -81,11 +88,15 @@ def imoveis_filter(request):
     if area_gourmet == "1":
         casas = Casa.objects.filter(area_gourmet = True)
 
+    values =  [ 100000, 300000 ],
 
-#   fp_min = request.POST.get('fp_min')
-#   fp_max = request.POST.get('fp_max')
-#
-#   #casas = Casa.objects.filter(valor__range=(fp_min, fp_max))
+    fp_min = request.POST.get('fp_min')
+    fp_max = request.POST.get('fp_max')
+
+    #if fp_min != values[0] or fp_max != values[1]:
+    #    casas = Casa.objects.filter(valor__range=(fp_min, fp_max))
+
+
     
     
     
