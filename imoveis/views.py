@@ -50,36 +50,19 @@ def imoveis_filter(request):
     print(request.POST)
 
     dorms = request.POST.get('dorms')
-    if dorms == "0":
-        dorms = False
-    else:
-        dorms = int(dorms)
-    
-    if dorms:
+    if int(dorms) > 0:
         casas = Casa.objects.filter(dormitorios = dorms)
 
-    
+        
     suites = request.POST.get('suites')
-    if suites == 0:
-        suites = False
-    else:
-        suites = int(suites)
-
-    print(suites)
-
-    if suites:
+    if int(suites) > 0:
         casas = Casa.objects.filter(suites=suites)
 
-
     garagem = request.POST.get('garagem')
-    if garagem == "0":
-        garagem = False
-    else:
-        garagem = int(garagem)
-
-    if garagem:
+    if int(garagem) > 0:
         casas = Casa.objects.filter(vagas = garagem)
-#
+
+        
 #   area_servico = request.POST.get('area_servico')
 #   if area_servico == "1":
 #       area_servico = True
