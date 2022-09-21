@@ -11,6 +11,8 @@ import requests
 
 # Create your views here.
 from imoveis.forms import CadastroImovel
+
+
 def index(request):
     casas = Casa.objects.order_by('data_cadastro')
     template = loader.get_template('index.html')
@@ -44,20 +46,88 @@ def cadastro_imovel(request):
 
 
 def imoveis_filter(request):
+    casas = Casa.objects.all()
     print(request.POST)
+
     dorms = request.POST.get('dorms')
+    if dorms == "0":
+        dorms = False
+    else:
+        dorms = int(dorms)
+    
+    if dorms:
+        casas = Casa.objects.filter(dormitorios = dorms)
+
+    
     suites = request.POST.get('suites')
+    if suites == 0:
+        suites = False
+    else:
+        suites = int(suites)
+
+    print(suites)
+
+    if suites:
+        casas = Casa.objects.filter(suites=suites)
+
+
     garagem = request.POST.get('garagem')
+    if garagem == "0":
+        garagem = False
+    else:
+        garagem = int(garagem)
 
-    area_servico = request.POST.get('area_servico')
-    piscina = request.POST.get('piscina')
-    churrasqueira = request.POST.get('churrasqueira')
-    area_gourmet = request.POST.get('area_gourmet')
-
-    fp_min = request.POST.get('fp_min')
-    fp_max = request.POST.get('fp_max')
-
-    casas = Casa.objects.filter(valor__range=(fp_min, fp_max), dormitorios=dorms)
+    if garagem:
+        casas = Casa.objects.filter(vagas = garagem)
+#
+#   area_servico = request.POST.get('area_servico')
+#   if area_servico == "1":
+#       area_servico = True
+#   else:
+#       area_servico = False
+#   
+#   if area_servico:
+#       casas = Casa.objects.filter(area_servico= True)
+#
+#   piscina = request.POST.get('piscina')
+#   if piscina == "1":
+#       piscina = True
+#   else:
+#       piscina = False
+#
+#   if piscina:
+#       casas = Casa.objects.filter(piscina = True)
+#   
+#
+#   churrasqueira = request.POST.get('churrasqueira')
+#   if churrasqueira == "1":
+#       churrasqueira = True
+#   else:
+#       churrasqueira = False
+#
+#   if churrasqueira:
+#       casas = Casa.objects.filter(churrasqueira = True)
+#
+#   area_gourmet = request.POST.get('area_gourmet')
+#   if area_gourmet == "1":
+#       area_gourmet = True
+#   else:
+#       area_gourmet = False
+#
+#   if area_gourmet:
+#       casas = Casa.objects.filter(area_gourmet = True)
+#
+#
+#
+#   fp_min = request.POST.get('fp_min')
+#   fp_max = request.POST.get('fp_max')
+#
+#   #casas = Casa.objects.filter(valor__range=(fp_min, fp_max))
+    
+    
+    
+    
+    
     template = loader.get_template('index.html')
     context = {
         'casas': casas,
